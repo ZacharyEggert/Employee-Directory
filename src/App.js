@@ -1,15 +1,22 @@
 import React from 'react';
-import {Router, Switch, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import { GlobalProvider } from './utils/GlobalState';
+import Frame from './components/Frame'
 
 const App = (props) => {
+
+
+    
 return (
+    <GlobalProvider >
     <div>
-    <Router>
-    <Switch>
-        <Route path='/' render={() => {return <Component />}} />
-    </Switch>
-    </Router>
-    </div>  
+        <Router>
+        <Switch>
+            <Route path="/" render={() => {return <Frame />}} />
+        </Switch>
+        </Router>
+    </div>
+    </GlobalProvider>  
 );
 }
 
