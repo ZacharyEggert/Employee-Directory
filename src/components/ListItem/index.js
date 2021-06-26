@@ -9,10 +9,17 @@ const ListItem = (props) => {
 
     // console.log({globalStore, dispatch});
 
+    const {employee} = props;
+
 return (
-    <div>
-        
-    </div>
+    <tr>
+        <td className=''><img className='mx-auto object-center rounded-full' alt='thumb' src={employee.picture.medium}/></td>
+        <td>{employee.login.salt}</td>
+        <td>{employee.name.first}</td>
+        <td>{employee.name.last}</td>
+        <td>{employee.email}</td>
+        <td>{employee.location.city + ', ' + employee.location.state + ', ' + employee.location.country}</td>
+    </tr>
 )
 }
 

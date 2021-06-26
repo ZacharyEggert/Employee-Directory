@@ -4,11 +4,30 @@ const GlobalContext = createContext();
 const { Provider } = GlobalContext;
 
 const initialState = {
-  
+  employees:[],
+  currentEmployee:null,
+  sortBy:'Name',
+  sortDirection:'asc',
+
 };
 
 const reducer = (state, action) => {
-  
+  switch (action.type) {
+    case 'addEmployee':
+      return {...state, employees:[...state.employees, action.data]}
+    case 'addEmployeeBulk':
+      return {...state, employees:[...state.employees, ...action.data ]}
+    case 'toggleSortDirection':
+      return {...state, sortDirection:!state.sortDirection}
+    case 'sortBy':
+      return {...state, sortBy:action.data}
+    case 'setCurrentEmployee':
+      return {...state, currentEmployee:action.data}
+    case 'unsetCurrentEmployee':
+      return {...state, currentEmployee:null}
+      
+    default: return state;
+  }
 };
 
 const GlobalProvider = ({...props }) => {

@@ -1,6 +1,8 @@
 import React from "react";
 import ListItem from '../ListItem';
-import { useGlobalContext } from "../../utils/GlobalState";;
+import ListHead from "../ListHead";
+import { useGlobalContext } from "../../utils/GlobalState";
+
 
 
 const ListView = (props) => {
@@ -12,7 +14,16 @@ const ListView = (props) => {
 
 return (
     <div>
-        <ListItem />
+        <table className='w-full'>
+            <ListHead/>
+            <tbody>
+                {globalStore.employees.map(employee => {
+                    return (
+                        <ListItem employee={employee} key={employee.email}/>
+                    )
+                })}
+            </tbody>
+        </table>
     </div>
 )
 }
