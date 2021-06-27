@@ -48,9 +48,12 @@ return (
             <ListHead sortBy={globalState.sortBy} sortDirection={globalState.sortDirection} dispatch={dispatch}/>
             <tbody>
                 {employeeList.map(employee => {
-                    if(employee.name.first.includes(globalState.search)||employee.name.last.includes(globalState.search)){return (
+                    if(employee.name.first.toLowerCase().includes(globalState.search.toLowerCase())
+                    ||employee.name.last.toLowerCase().includes(globalState.search.toLowerCase)){
+                        return (
                         <ListItem employee={employee} key={employee.email}/>
-                    )}else{return null}
+                        )
+                    }else{return null}
                 })}
             </tbody>
         </table>
