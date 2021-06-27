@@ -13,12 +13,12 @@ const ListItem = (props) => {
 
 return (
     <tr>
-        <td className=''><img className='mx-auto object-center rounded-full' alt='thumb' src={employee.picture.medium}/></td>
-        <td>{employee.login.salt}</td>
-        <td>{employee.name.first}</td>
-        <td>{employee.name.last}</td>
-        <td>{employee.email}</td>
-        <td>{employee.location.city + ', ' + employee.location.state + ', ' + employee.location.country}</td>
+        <td className='py-4'><img className='object-center mx-auto rounded-full' alt='thumb' src={employee.picture.medium}/></td>
+        <td className='py-4'>{employee.login.salt}</td>
+        <td className='py-4'>{employee.name.first}</td>
+        <td className='py-4'>{employee.name.last}</td>
+        <td className='py-4'>{employee.email}</td>
+        <td className='py-4'>{employee.location.city + ', ' + employee.location.state + ', ' + employee.location.country}</td>
     </tr>
 )
 }

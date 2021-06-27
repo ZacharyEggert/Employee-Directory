@@ -5,7 +5,6 @@ import Frame from './components/Frame'
 
 const App = (props) => {
 
-
     
 return (
     <GlobalProvider >

@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import ListView from '../ListView';
-import EmployeeView from '../EmployeeView';
 import { useGlobalContext } from '../../utils/GlobalState';
 
 // eslint-disable-next-line no-unused-vars
@@ -26,7 +25,6 @@ const Frame = () => {
 return (
     <div>
         <ListView />
-        <EmployeeView />
     </div>
 )
 }

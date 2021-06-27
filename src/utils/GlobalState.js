@@ -6,8 +6,8 @@ const { Provider } = GlobalContext;
 const initialState = {
   employees:[],
   currentEmployee:null,
-  sortBy:'Name',
-  sortDirection:'asc',
+  sortBy:'first',
+  sortDirection:true,
 
 };
 

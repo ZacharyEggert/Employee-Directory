@@ -8,16 +8,43 @@ import { useGlobalContext } from "../../utils/GlobalState";
 const ListView = (props) => {
 
     // eslint-disable-next-line no-unused-vars
-    const [globalStore, dispatch] = useGlobalContext();
+    const [globalState, dispatch] = useGlobalContext();
 
-    // console.log({globalStore, dispatch});
+    const sortList = (list) => {
+
+
+        let newList = [...list];
+        const {sortBy, sortDirection} = globalState;
+
+
+        const algorithmAlphabetical = (a, b) => {
+            if( a.name[sortBy] < b.name[sortBy]){
+                return -1;
+            }
+            if( b.name[sortBy] < a.name[sortBy]){
+                return 1;
+            }
+            return 0;
+        }
+
+        newList.sort(algorithmAlphabetical)
+
+        newList = sortDirection ? newList : newList.reverse();
+
+        return newList;
+    }
+
+    let employeeList = [...globalState.employees]
+
+    employeeList = sortList(employeeList);
+
 
 return (
     <div>
         <table className='w-full'>
-            <ListHead/>
+            <ListHead sortBy={globalState.sortBy} sortDirection={globalState.sortDirection} dispatch={dispatch}/>
             <tbody>
-                {globalStore.employees.map(employee => {
+                {employeeList.map(employee => {
                     return (
                         <ListItem employee={employee} key={employee.email}/>
                     )

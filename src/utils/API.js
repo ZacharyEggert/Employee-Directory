@@ -10,7 +10,7 @@ const getRandomEmployee = () => {
 }
 
 const getRandomEmployeeSet = () => {
-    return axios.get('https://randomuser.me/api/?results=500&nat=us,ca,de', 
+    return axios.get('https://randomuser.me/api/?results=50&nat=us,ca,de', 
     {responseType:'json', headers: {"Access-Control-Allow-Origin": "*"}})
     .then(response => response.data.results)
     .then(array => {
