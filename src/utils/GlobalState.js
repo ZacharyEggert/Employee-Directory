@@ -8,6 +8,7 @@ const initialState = {
   currentEmployee:null,
   sortBy:'first',
   sortDirection:true,
+  search:''
 
 };
 
@@ -25,6 +26,8 @@ const reducer = (state, action) => {
       return {...state, currentEmployee:action.data}
     case 'unsetCurrentEmployee':
       return {...state, currentEmployee:null}
+    case 'setSearch':
+      return {...state, search:action.data}
       
     default: return state;
   }

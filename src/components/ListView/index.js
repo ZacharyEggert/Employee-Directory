@@ -2,6 +2,7 @@ import React from "react";
 import ListItem from '../ListItem';
 import ListHead from "../ListHead";
 import { useGlobalContext } from "../../utils/GlobalState";
+import SearchBar from "../SearchBar";
 
 
 
@@ -41,13 +42,15 @@ const ListView = (props) => {
 
 return (
     <div>
+        <SearchBar />
+
         <table className='w-full'>
             <ListHead sortBy={globalState.sortBy} sortDirection={globalState.sortDirection} dispatch={dispatch}/>
             <tbody>
                 {employeeList.map(employee => {
-                    return (
+                    if(employee.name.first.includes(globalState.search)||employee.name.last.includes(globalState.search)){return (
                         <ListItem employee={employee} key={employee.email}/>
-                    )
+                    )}else{return null}
                 })}
             </tbody>
         </table>
