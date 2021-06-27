@@ -49,7 +49,7 @@ return (
             <tbody>
                 {employeeList.map(employee => {
                     if(employee.name.first.toLowerCase().includes(globalState.search.toLowerCase())
-                    ||employee.name.last.toLowerCase().includes(globalState.search.toLowerCase)){
+                    ||employee.name.last.toLowerCase().includes(globalState.search.toLowerCase())){
                         return (
                         <ListItem employee={employee} key={employee.email}/>
                         )
